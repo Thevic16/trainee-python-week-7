@@ -13,6 +13,7 @@ psycopg2-binary = "*"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
+djangorestframework-jwt = "*"
 
 [dev-packages]
 flake8 = "*"

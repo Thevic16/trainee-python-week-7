@@ -10,12 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import datetime
 from pathlib import Path
-
 import environ
 import dj_database_url
 
-# Initialize environ
+# Initialize environ ----------------------------------------------------------
 env = environ.Env()
 environ.Env.read_env()
 
@@ -30,16 +30,19 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+# DEBUG -----------------------------------------------------------------------
 if env('DEBUG_STATE') == 'True':
     DEBUG = True
 if env('DEBUG_STATE') == 'False':
     DEBUG = False
 
+# ALLOWED_HOSTS ---------------------------------------------------------------
 hosts = env('ALLOWED_HOST').split(",")
 ALLOWED_HOSTS = [hosts[0], hosts[1]]
 
 # Application definition
 
+# INSTALLED_APPS --------------------------------------------------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,6 +61,7 @@ INSTALLED_APPS = [
     'rent',
 ]
 
+# MIDDLEWARE ------------------------------------------------------------------
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -71,6 +75,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'film_rental_system.urls'
 
+# TEMPLATES -------------------------------------------------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -89,7 +94,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'film_rental_system.wsgi.application'
 
-# Database
+# Database --------------------------------------------------------------------
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
@@ -110,7 +115,7 @@ db_from_env = dj_database_url.config(default=env('DATABASE_URL'),
 DATABASES['default'].update(db_from_env)
 '''
 
-# Password validation
+# Password validation ---------------------------------------------------------
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -128,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
+# Internationalization --------------------------------------------------------
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
@@ -141,7 +146,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images) --------------------------------------
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/staticfiles/'
@@ -149,11 +154,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Default primary key field type
+# Default primary key field type ----------------------------------------------
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# LOGGING ---------------------------------------------------------------------
 # Logging configuration
 LOGGING = {
     'version': 1,
@@ -190,19 +196,62 @@ LOGGING = {
     }
 }
 
+# MODEL USER ------------------------------------------------------------------
+# Set default user model
+AUTH_USER_MODEL = 'account.MyUser'
+
+# DJANGO REST FRAMEWORK -------------------------------------------------------
 # Rest Framework configuration
 REST_FRAMEWORK = {
+    # Pagination
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 2,
 
+    # Filter
     'DEFAULT_FILTER_BACKENDS': (
         'rest_framework.filters.SearchFilter',
         'rest_framework.filters.OrderingFilter',
     ),
+
+    # Search and Ordering
     'SEARCH_PARAM': 'search',
     'ORDERING_PARAM': 'ordering',
+
+    # Permission
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+
+    # Authentication
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
 }
 
-# Set default user model
-AUTH_USER_MODEL = 'account.MyUser'
+# JWT -------------------------------------------------------------------------
+JWT_AUTH = {
+    'JWT_ENCODE_HANDLER':
+    'rest_framework_jwt.utils.jwt_encode_handler',
+
+    'JWT_DECODE_HANDLER':
+    'rest_framework_jwt.utils.jwt_decode_handler',
+
+    'JWT_PAYLOAD_HANDLER':
+    'rest_framework_jwt.utils.jwt_payload_handler',
+
+    'JWT_PAYLOAD_GET_USER_ID_HANDLER':
+    'rest_framework_jwt.utils.jwt_get_user_id_from_payload_handler',
+
+    'JWT_RESPONSE_PAYLOAD_HANDLER':
+    'rest_framework_jwt.utils.jwt_response_payload_handler',
+
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
+
+    'JWT_AUTH_HEADER_PREFIX': 'JWT',
+    'JWT_AUTH_COOKIE': None,
+
+}

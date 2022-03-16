@@ -15,7 +15,6 @@ from pathlib import Path
 import environ
 import dj_database_url
 
-
 # Initialize environ
 env = environ.Env()
 environ.Env.read_env()
@@ -53,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # own
+    'account',
     'film',
     'person',
     'rent',
@@ -104,11 +104,11 @@ DATABASES = {
     }
 }
 
-
+'''
 db_from_env = dj_database_url.config(default=env('DATABASE_URL'),
                                      conn_max_age=500, ssl_require=True)
 DATABASES['default'].update(db_from_env)
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -203,3 +203,6 @@ REST_FRAMEWORK = {
     'SEARCH_PARAM': 'search',
     'ORDERING_PARAM': 'ordering',
 }
+
+# Set default user model
+AUTH_USER_MODEL = 'account.MyUser'

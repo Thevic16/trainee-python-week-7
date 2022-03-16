@@ -1,0 +1,950 @@
+{
+	"info": {
+		"_postman_id": "daa8c2f0-c8de-4884-972f-bc7210aa3ad1",
+		"name": "fillm_rental_system_week_6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get Category ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/category/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"category",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{name_category}}\",\n    \"description\": \"{{description_category}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/category/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"category",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{name_category}}\",\n    \"description\": \"{{description_category}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/category/{{id_category}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"category",
+								"{{id_category}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/category/{{id_category}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"category",
+								"{{id_category}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Film",
+			"item": [
+				{
+					"name": "Get Film",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/film/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"film",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Film",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"{{title_film}}\",\n    \"description\": \"{{description_film}}\",\n    \"release_date\": \"{{release_date_film}}\",\n    \"category\": {{id_category}},\n    \"price_by_day\": {{price_by_day_film}},\n    \"stock\": {{stock_film}},\n    \"availability\": {{availability_film}},\n    \"film_type\": \"{{film_type}}\",\n    \"film_prequel\": {{film_prequel_id}} \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/film/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"film",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Film",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{id_film}},\n    \"title\": \"{{title_film}}\",\n    \"description\": \"{{description_film}}\",\n    \"release_date\": \"{{release_date_film}}\",\n    \"category\": {{id_category}},\n    \"price_by_day\": {{price_by_day_film}},\n    \"stock\": {{stock_film}},\n    \"availability\": {{availability_film}},\n    \"film_type\": \"{{film_type}}\",\n    \"film_prequel\": {{film_prequel_id}} \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/film/{{id_film}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"film",
+								"{{id_film}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Film",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/film/{{id_film}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"film",
+								"{{id_film}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Season",
+			"item": [
+				{
+					"name": "Get Season",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/season/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"season",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Season",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"film\": {{film_serie_id}},\n    \"title\": \"{{title_season}}\",\n    \"season_prequel\": {{id_season_prequel}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/season/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"season",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Season",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{id_season}},\n    \"film\": {{film_serie_id}},\n    \"title\": \"{{title_season}}\",\n    \"season_prequel\": {{id_season_prequel}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/season/{{id_season}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"season",
+								"{{id_season}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Season",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{id_season}},\n    \"film\": {{film_serie_id}},\n    \"title\": \"{{title_season}}\",\n    \"season_prequel\": {{id_season_prequel}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/season/{{id_season}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"season",
+								"{{id_season}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chapter",
+			"item": [
+				{
+					"name": "Get Chapter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/chapter/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"chapter",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Chapter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"season\": {{film_season_id}},\n    \"title\": \"{{title_chapter}}\",\n    \"season_prequel\": {{id_chapter_prequel}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/chapter/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"chapter",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Chapter",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{id_chapter}},\n    \"season\": {{film_season_id}},\n    \"title\": \"{{title_chapter}}\",\n    \"season_prequel\": {{id_chapter_prequel}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/chapter/{{id_chapter}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"chapter",
+								"{{id_chapter}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Chapter",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/chapter/{{id_chapter}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"chapter",
+								"{{id_chapter}}"
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "Get Person",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/person/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"person",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{name_person}}\",\n    \"lastname\": \"{{lastname_person}}\",\n    \"gender\": \"{{gender_person}}\",\n    \"date_of_birth\": \"{{date_of_birth_person}}\",\n    \"person_type\": \"{{person_type}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/person/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"person",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Person",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{person_id}},\n    \"name\": \"{{name_person}}\",\n    \"lastname\": \"{{lastname_person}}\",\n    \"gender\": \"{{gender_person}}\",\n    \"date_of_birth\": \"{{date_of_birth_person}}\",\n    \"person_type\": \"{{person_type}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/person/{{person_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"person",
+								"{{person_id}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Person",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/person/{{person_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"person",
+								"{{person_id}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Get Role",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/role/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"role",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Post Role",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{name_role}}\",\n    \"description\": \"{{description_role}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/role/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"role",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Put Role",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{role_id}},\n    \"name\": \"{{name_role}}\",\n    \"description\": \"{{description_role}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/role/{{role_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"role",
+								"{{role_id}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/role/{{role_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"role",
+								"{{role_id}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FilmPersonRole",
+			"item": [
+				{
+					"name": "Get FilmPersonRole",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/film-person-role/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"film-person-role",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post FilmPersonRole",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"film\": {{film_serie_id}},\n    \"person\": {{person_id}},\n    \"role\": {{role_id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/film-person-role/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"film-person-role",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put FilmPersonRole",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{film_person_role_id}},\n    \"film\": {{film_serie_id}},\n    \"person\": {{person_id}},\n    \"role\": {{role_id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/film-person-role/{{film_person_role_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"film-person-role",
+								"{{film_person_role_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete FilmPersonRole",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/film-person-role/{{film_person_role_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"film-person-role",
+								"{{film_person_role_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Get Client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/client/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"client",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"person\": {{person_id}},\n    \"direction\": \"{{direction_client}}\",\n    \"phone\": \"{{phone_client}}\",\n    \"email\": \"{{email_client}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/client/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"client",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Client",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{client_id}},\n    \"person\": {{person_id}},\n    \"direction\": \"{{direction_client}}\",\n    \"phone\": \"{{phone_client}}\",\n    \"email\": \"{{email_client}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/client/{{client_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"{{client_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/client/{{client_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"{{client_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rent",
+			"item": [
+				{
+					"name": "Get Rent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/rent/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rent",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Rent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"film\": {{film_serie_id}},\n    \"client\": {{client_id}},\n    \"amount\": {{amount_rent}},\n    \"start_date\": \"{{start_date_rent}}\",\n    \"return_date\": \"{{return_date_rent}}\",\n    \"actual_return_date\": \"{{actual_return_date_rent}}\",\n    \"state\": \"{{state_rent}}\",\n    \"cost\": {{cost_rent}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/rent/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rent",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Rent",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{rent_id}},\n    \"film\": {{film_serie_id}},\n    \"client\": {{client_id}},\n    \"amount\": {{amount_rent}},\n    \"start_date\": \"{{start_date_rent}}\",\n    \"return_date\": \"{{return_date_rent}}\",\n    \"actual_return_date\": \"{{actual_return_date_rent}}\",\n    \"state\": \"{{state_rent}}\",\n    \"cost\": {{cost_rent}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/rent/{{rent_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rent",
+								"{{rent_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Rent",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/rent/{{rent_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"rent",
+								"{{rent_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

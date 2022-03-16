@@ -9,8 +9,8 @@ from utilities.logger import Logger
 
 class RentAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                         generics.RetrieveAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     serializer_class = RentSerializer
     queryset = Rent.objects.all()
 
@@ -37,8 +37,8 @@ class RentAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class RentAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     queryset = Rent.objects.all()
     serializer_class = RentSerializer
     ordering_fields = ('id', 'client__person__name',

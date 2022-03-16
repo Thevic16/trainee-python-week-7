@@ -12,8 +12,8 @@ from .serializers import (FilmSerializer, CategorySerializer, SeasonSerializer,
 # Views Category
 class CategoryAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                             generics.RetrieveAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
 
@@ -40,8 +40,8 @@ class CategoryAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class CategoryAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     ordering_fields = ('id', 'name')
@@ -66,8 +66,8 @@ class CategoryAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 # Views Film
 class FilmAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                         generics.RetrieveAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     serializer_class = FilmSerializer
     queryset = Film.objects.all()
 
@@ -94,8 +94,8 @@ class FilmAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class FilmAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     queryset = Film.objects.all()
     serializer_class = FilmSerializer
     ordering_fields = ('id', 'title', 'release_date', 'price_by_day', 'stock',
@@ -124,8 +124,8 @@ class FilmAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 # Views Season
 class SeasonAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                           generics.RetrieveAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     serializer_class = SeasonSerializer
     queryset = Season.objects.all()
 
@@ -152,8 +152,8 @@ class SeasonAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class SeasonAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     queryset = Season.objects.all()
     serializer_class = SeasonSerializer
     ordering_fields = ('id', 'title')
@@ -178,8 +178,8 @@ class SeasonAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 # Views Chapter
 class ChapterAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                            generics.RetrieveAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     serializer_class = ChapterSerializer
     queryset = Chapter.objects.all()
 
@@ -206,8 +206,8 @@ class ChapterAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class ChapterAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     queryset = Chapter.objects.all()
     serializer_class = ChapterSerializer
     ordering_fields = ('id', 'title')

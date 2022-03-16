@@ -12,8 +12,8 @@ from utilities.logger import Logger
 
 class PersonAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                           generics.RetrieveAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
 
@@ -40,8 +40,8 @@ class PersonAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class PersonAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
     ordering_fields = ('id', 'name', 'lastname', 'date_of_birth')
@@ -65,8 +65,8 @@ class PersonAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 # Views Role
 class RoleAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                         generics.RetrieveAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     serializer_class = RoleSerializer
     queryset = Role.objects.all()
 
@@ -93,8 +93,8 @@ class RoleAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class RoleAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     queryset = Role.objects.all()
     serializer_class = RoleSerializer
     ordering_fields = ('id', 'name')
@@ -120,8 +120,8 @@ class RoleAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 class FilmPersonRoleAPIDetailView(mixins.UpdateModelMixin,
                                   mixins.DestroyModelMixin,
                                   generics.RetrieveAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     serializer_class = FilmPersonRoleSerializer
     queryset = FilmPersonRole.objects.all()
 
@@ -148,8 +148,8 @@ class FilmPersonRoleAPIDetailView(mixins.UpdateModelMixin,
 
 
 class FilmPersonRoleAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     queryset = FilmPersonRole.objects.all()
     serializer_class = FilmPersonRoleSerializer
     ordering_fields = ('id', 'film__title', 'person__name', 'person__lastname',
@@ -180,8 +180,8 @@ class FilmPersonRoleAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 # Views Client
 class ClientAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                           generics.RetrieveAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     serializer_class = ClientSerializer
     queryset = Client.objects.all()
 
@@ -208,8 +208,8 @@ class ClientAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class ClientAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    permission_classes = []
-    authentication_classes = []
+    # permission_classes = []
+    # authentication_classes = []
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
     ordering_fields = ('id', 'person__name', 'person__lastname', 'phone',

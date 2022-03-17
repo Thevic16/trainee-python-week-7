@@ -219,9 +219,11 @@ REST_FRAMEWORK = {
     'ORDERING_PARAM': 'ordering',
 
     # Permission
-    'DEFAULT_PERMISSION_CLASSES': (
+    '''
+        'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    '''
 
     # Authentication
     'DEFAULT_AUTHENTICATION_CLASSES': (

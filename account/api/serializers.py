@@ -60,7 +60,6 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user_obj = MyUser(
             email=validated_data.get('email'),
-            date_of_birth=datetime.date.today()
         )
         user_obj.set_password(validated_data.get('password'))
         user_obj.save()

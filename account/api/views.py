@@ -1,15 +1,18 @@
 from django.contrib.auth import authenticate
-from rest_framework import permissions
+from rest_framework import permissions, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_jwt.settings import api_settings
+
+from account.api.serializers import UserRegisterSerializer
+from account.models import MyUser
 
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
 jwt_response_payload_handler = api_settings.JWT_RESPONSE_PAYLOAD_HANDLER
 
 
-class AuthView(APIView):
+class AuthAPIView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request, *args, **kwargs):
@@ -24,3 +27,9 @@ class AuthView(APIView):
         token = jwt_encode_handler(payload)
         response = jwt_response_payload_handler(token, user, request=request)
         return Response(response)
+
+
+class RegisterAPIView(generics.CreateAPIView):
+    queryset = MyUser.objects.all()
+    serializer_class = UserRegisterSerializer
+    permission_classes = [permissions.AllowAny]

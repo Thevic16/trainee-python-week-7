@@ -17,6 +17,7 @@ djangorestframework-jwt = "*"
 pillow = "*"
 django-storages = "*"
 boto3 = "*"
+django-redis = "*"
 
 [dev-packages]
 flake8 = "*"

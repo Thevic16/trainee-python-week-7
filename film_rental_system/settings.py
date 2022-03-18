@@ -266,6 +266,22 @@ JWT_AUTH = {
 
 }
 
+# Cache settings --------------------------------------------------------------
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+# setting the cache TTL to 60 minutes
+CACHE_TTL = 60 * 1
+
 # S3 BUCKETS CONFIG -----------------------------------------------------------
 '''
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')

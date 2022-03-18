@@ -1,9 +1,13 @@
 from django.core.exceptions import ValidationError
 from django.db.models import Q
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie
 from rest_framework import generics, mixins
 from rest_framework.response import Response
 
 from film.models import Film, Category, Season, Chapter
+from film_rental_system.settings import CACHE_TTL
 from utilities.logger import Logger
 from .serializers import (FilmSerializer, CategorySerializer, SeasonSerializer,
                           ChapterSerializer)
@@ -17,6 +21,8 @@ class CategoryAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
 
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
     def put(self, request, *args, **kwargs):
         try:
             return self.update(request, *args, **kwargs)
@@ -24,6 +30,8 @@ class CategoryAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
 
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
     def patch(self, request, *args, **kwargs):
         try:
             return self.update(request, *args, **kwargs)
@@ -31,6 +39,8 @@ class CategoryAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
 
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
     def delete(self, request, *args, **kwargs):
         try:
             return self.destroy(request, *args, **kwargs)
@@ -55,6 +65,8 @@ class CategoryAPIView(mixins.CreateModelMixin, generics.ListAPIView):
             qs = qs.filter(Q(name__icontains=query))
         return qs
 
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
     def post(self, request, *args, **kwargs):
         try:
             return self.create(request, *args, **kwargs)

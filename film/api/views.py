@@ -21,8 +21,6 @@ class CategoryAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
 
-    @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(CACHE_TTL))
     def put(self, request, *args, **kwargs):
         try:
             return self.update(request, *args, **kwargs)
@@ -30,8 +28,6 @@ class CategoryAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
 
-    @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(CACHE_TTL))
     def patch(self, request, *args, **kwargs):
         try:
             return self.update(request, *args, **kwargs)
@@ -39,8 +35,6 @@ class CategoryAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
 
-    @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(CACHE_TTL))
     def delete(self, request, *args, **kwargs):
         try:
             return self.destroy(request, *args, **kwargs)
@@ -65,14 +59,17 @@ class CategoryAPIView(mixins.CreateModelMixin, generics.ListAPIView):
             qs = qs.filter(Q(name__icontains=query))
         return qs
 
-    @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(CACHE_TTL))
     def post(self, request, *args, **kwargs):
         try:
             return self.create(request, *args, **kwargs)
         except ValidationError as e:
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
+
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(CategoryAPIView, self).get(request, *args, **kwargs)
 
 
 # Views Film

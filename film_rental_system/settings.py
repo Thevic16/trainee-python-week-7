@@ -279,8 +279,10 @@ CACHES = {
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
+
 # setting the cache TTL to 60 minutes
 CACHE_TTL = 60 * 1
+
 
 # S3 BUCKETS CONFIG -----------------------------------------------------------
 '''

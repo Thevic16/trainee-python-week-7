@@ -27,6 +27,7 @@ class FilmSerializer(serializers.ModelSerializer):
             'stock',
             'availability',
             'film_type',
+            'image',
             'film_prequel',
         ]
 

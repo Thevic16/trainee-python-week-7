@@ -4,6 +4,11 @@ from django.utils.encoding import smart_text
 from film.business_logic import (validator_date_limit_today,
                                  validator_no_negative, FilmBusinessLogic)
 
+
+def upload_film_image(instance, filename):
+    return f'films/{instance.title}/{filename}'
+
+
 FILM_TYPE_CHOICES = {
     ('movie', 'Movie'),
     ('serie', 'Serie'),
@@ -28,7 +33,8 @@ class Film(models.Model):
     stock = models.IntegerField(validators=[validator_no_negative])
     availability = models.IntegerField(validators=[validator_no_negative])
     film_type = models.CharField(max_length=120, choices=FILM_TYPE_CHOICES)
-
+    image = models.ImageField(upload_to=upload_film_image,
+                              null=True, blank=True)
     film_prequel = models.OneToOneField('self', on_delete=models.CASCADE,
                                         null=True, blank=True)
 
@@ -42,7 +48,7 @@ def film_model_pre_save_receiver(sender, instance, *args, **kwargs):
                                                           )
     if instance.film_prequel is not None:
         FilmBusinessLogic.validate_film_type_equal_prequel_film_type(
-                instance.film_type, instance.film_prequel.film_type)
+            instance.film_type, instance.film_prequel.film_type)
 
 
 pre_save.connect(film_model_pre_save_receiver, sender=Film)

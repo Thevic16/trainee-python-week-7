@@ -100,23 +100,23 @@ WSGI_APPLICATION = 'film_rental_system.wsgi.application'
 # Database --------------------------------------------------------------------
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASS'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
+if env('DATABASE_STATE') == 'Local':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': env('DATABASE_NAME'),
+            'USER': env('DATABASE_USER'),
+            'PASSWORD': env('DATABASE_PASS'),
+            'HOST': env('DATABASE_HOST'),
+            'PORT': env('DATABASE_PORT'),
+        }
     }
-}
+elif env('DATABASE_STATE') == 'Deploy':
+    DATABASES = {}
+    db_from_env = dj_database_url.config(default=env('DATABASE_URL'),
+                                         conn_max_age=500, ssl_require=True)
+    DATABASES['default'].update(db_from_env)
 
-'''
-db_from_env = dj_database_url.config(default=env('DATABASE_URL'),
-                                     conn_max_age=500, ssl_require=True)
-DATABASES['default'].update(db_from_env)
-'''
 
 # Password validation ---------------------------------------------------------
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -270,7 +270,7 @@ JWT_AUTH = {
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://redis:6379/1",
+        "LOCATION": env('REDIS_URL'),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }

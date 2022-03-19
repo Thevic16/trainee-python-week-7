@@ -26,7 +26,5 @@ services:
     image: redis:alpine
 
 
-
-
 volumes:
   pg_data: {}

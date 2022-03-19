@@ -1,26 +1,26 @@
 {
 	"info": {
 		"_postman_id": "daa8c2f0-c8de-4884-972f-bc7210aa3ad1",
-		"name": "fillm_rental_system_week_6",
+		"name": "fillm_rentsal_system_week_6",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Category",
+			"name": "categories",
 			"item": [
 				{
-					"name": "Get Category ",
+					"name": "Get categories ",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/category/",
+							"raw": "{{url}}/api/categories/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"category",
+								"categories",
 								""
 							]
 						},
@@ -29,13 +29,13 @@
 					"response": []
 				},
 				{
-					"name": "Post Category",
+					"name": "Post categories",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"{{name_category}}\",\n    \"description\": \"{{description_category}}\"\n}",
+							"raw": "{\n    \"name\": \"{{name_categories}}\",\n    \"description\": \"{{description_categories}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,13 +43,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/category/",
+							"raw": "{{url}}/api/categories/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"category",
+								"categories",
 								""
 							]
 						},
@@ -58,13 +58,13 @@
 					"response": []
 				},
 				{
-					"name": "Put Category",
+					"name": "Put categories",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"{{name_category}}\",\n    \"description\": \"{{description_category}}\"\n}",
+							"raw": "{\n    \"name\": \"{{name_categories}}\",\n    \"description\": \"{{description_categories}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -72,14 +72,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/category/{{id_category}}/",
+							"raw": "{{url}}/api/categories/{{id_categories}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"category",
-								"{{id_category}}",
+								"categories",
+								"{{id_categories}}",
 								""
 							]
 						},
@@ -88,19 +88,19 @@
 					"response": []
 				},
 				{
-					"name": "Delete Category",
+					"name": "Delete categories",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/category/{{id_category}}/",
+							"raw": "{{url}}/api/categories/{{id_categories}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"category",
-								"{{id_category}}",
+								"categories",
+								"{{id_categories}}",
 								""
 							]
 						},
@@ -111,21 +111,21 @@
 			]
 		},
 		{
-			"name": "Film",
+			"name": "films",
 			"item": [
 				{
-					"name": "Get Film",
+					"name": "Get films",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/film/",
+							"raw": "{{url}}/api/films/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"film",
+								"films",
 								""
 							]
 						},
@@ -134,13 +134,13 @@
 					"response": []
 				},
 				{
-					"name": "Post Film",
+					"name": "Post films",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"{{title_film}}\",\n    \"description\": \"{{description_film}}\",\n    \"release_date\": \"{{release_date_film}}\",\n    \"category\": {{id_category}},\n    \"price_by_day\": {{price_by_day_film}},\n    \"stock\": {{stock_film}},\n    \"availability\": {{availability_film}},\n    \"film_type\": \"{{film_type}}\",\n    \"film_prequel\": {{film_prequel_id}} \n}",
+							"raw": "{\n    \"title\": \"{{title_films}}\",\n    \"description\": \"{{description_films}}\",\n    \"release_date\": \"{{release_date_films}}\",\n    \"categories\": {{id_categories}},\n    \"price_by_day\": {{price_by_day_films}},\n    \"stock\": {{stock_films}},\n    \"availability\": {{availability_films}},\n    \"films_type\": \"{{films_type}}\",\n    \"films_prequel\": {{films_prequel_id}} \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -148,13 +148,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/film/",
+							"raw": "{{url}}/api/films/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"film",
+								"films",
 								""
 							]
 						},
@@ -163,13 +163,13 @@
 					"response": []
 				},
 				{
-					"name": "Put Film",
+					"name": "Put films",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": {{id_film}},\n    \"title\": \"{{title_film}}\",\n    \"description\": \"{{description_film}}\",\n    \"release_date\": \"{{release_date_film}}\",\n    \"category\": {{id_category}},\n    \"price_by_day\": {{price_by_day_film}},\n    \"stock\": {{stock_film}},\n    \"availability\": {{availability_film}},\n    \"film_type\": \"{{film_type}}\",\n    \"film_prequel\": {{film_prequel_id}} \n}",
+							"raw": "{\n    \"id\": {{id_films}},\n    \"title\": \"{{title_films}}\",\n    \"description\": \"{{description_films}}\",\n    \"release_date\": \"{{release_date_films}}\",\n    \"categories\": {{id_categories}},\n    \"price_by_day\": {{price_by_day_films}},\n    \"stock\": {{stock_films}},\n    \"availability\": {{availability_films}},\n    \"films_type\": \"{{films_type}}\",\n    \"films_prequel\": {{films_prequel_id}} \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -177,14 +177,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/film/{{id_film}}/",
+							"raw": "{{url}}/api/films/{{id_films}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"film",
-								"{{id_film}}",
+								"films",
+								"{{id_films}}",
 								""
 							]
 						},
@@ -193,19 +193,19 @@
 					"response": []
 				},
 				{
-					"name": "Delete Film",
+					"name": "Delete films",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/film/{{id_film}}/",
+							"raw": "{{url}}/api/films/{{id_films}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"film",
-								"{{id_film}}",
+								"films",
+								"{{id_films}}",
 								""
 							]
 						},
@@ -216,21 +216,21 @@
 			]
 		},
 		{
-			"name": "Season",
+			"name": "seasons",
 			"item": [
 				{
-					"name": "Get Season",
+					"name": "Get seasons",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/season/",
+							"raw": "{{url}}/api/seasons/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"season",
+								"seasons",
 								""
 							]
 						},
@@ -239,13 +239,13 @@
 					"response": []
 				},
 				{
-					"name": "Post Season",
+					"name": "Post seasons",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"film\": {{film_serie_id}},\n    \"title\": \"{{title_season}}\",\n    \"season_prequel\": {{id_season_prequel}}\n}",
+							"raw": "{\n    \"films\": {{films_serie_id}},\n    \"title\": \"{{title_seasons}}\",\n    \"seasons_prequel\": {{id_seasons_prequel}}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -253,13 +253,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/season/",
+							"raw": "{{url}}/api/seasons/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"season",
+								"seasons",
 								""
 							]
 						},
@@ -268,13 +268,13 @@
 					"response": []
 				},
 				{
-					"name": "Put Season",
+					"name": "Put seasons",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": {{id_season}},\n    \"film\": {{film_serie_id}},\n    \"title\": \"{{title_season}}\",\n    \"season_prequel\": {{id_season_prequel}}\n}",
+							"raw": "{\n    \"id\": {{id_seasons}},\n    \"films\": {{films_serie_id}},\n    \"title\": \"{{title_seasons}}\",\n    \"seasons_prequel\": {{id_seasons_prequel}}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -282,14 +282,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/season/{{id_season}}/",
+							"raw": "{{url}}/api/seasons/{{id_seasons}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"season",
-								"{{id_season}}",
+								"seasons",
+								"{{id_seasons}}",
 								""
 							]
 						},
@@ -298,13 +298,13 @@
 					"response": []
 				},
 				{
-					"name": "Delete Season",
+					"name": "Delete seasons",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": {{id_season}},\n    \"film\": {{film_serie_id}},\n    \"title\": \"{{title_season}}\",\n    \"season_prequel\": {{id_season_prequel}}\n}",
+							"raw": "{\n    \"id\": {{id_seasons}},\n    \"films\": {{films_serie_id}},\n    \"title\": \"{{title_seasons}}\",\n    \"seasons_prequel\": {{id_seasons_prequel}}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -312,14 +312,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/season/{{id_season}}/",
+							"raw": "{{url}}/api/seasons/{{id_seasons}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"season",
-								"{{id_season}}",
+								"seasons",
+								"{{id_seasons}}",
 								""
 							]
 						},
@@ -330,21 +330,21 @@
 			]
 		},
 		{
-			"name": "Chapter",
+			"name": "chapters",
 			"item": [
 				{
-					"name": "Get Chapter",
+					"name": "Get chapters",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/chapter/",
+							"raw": "{{url}}/api/chapters/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"chapter",
+								"chapters",
 								""
 							]
 						},
@@ -353,13 +353,13 @@
 					"response": []
 				},
 				{
-					"name": "Post Chapter",
+					"name": "Post chapters",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"season\": {{film_season_id}},\n    \"title\": \"{{title_chapter}}\",\n    \"season_prequel\": {{id_chapter_prequel}}\n}",
+							"raw": "{\n    \"seasons\": {{films_seasons_id}},\n    \"title\": \"{{title_chapters}}\",\n    \"seasons_prequel\": {{id_chapters_prequel}}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -367,13 +367,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/chapter/",
+							"raw": "{{url}}/api/chapters/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"chapter",
+								"chapters",
 								""
 							]
 						},
@@ -382,13 +382,13 @@
 					"response": []
 				},
 				{
-					"name": "Put Chapter",
+					"name": "Put chapters",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": {{id_chapter}},\n    \"season\": {{film_season_id}},\n    \"title\": \"{{title_chapter}}\",\n    \"season_prequel\": {{id_chapter_prequel}}\n}",
+							"raw": "{\n    \"id\": {{id_chapters}},\n    \"seasons\": {{films_seasons_id}},\n    \"title\": \"{{title_chapters}}\",\n    \"seasons_prequel\": {{id_chapters_prequel}}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -396,14 +396,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/chapter/{{id_chapter}}/",
+							"raw": "{{url}}/api/chapters/{{id_chapters}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"chapter",
-								"{{id_chapter}}",
+								"chapters",
+								"{{id_chapters}}",
 								""
 							]
 						},
@@ -412,19 +412,19 @@
 					"response": []
 				},
 				{
-					"name": "Delete Chapter",
+					"name": "Delete chapters",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/chapter/{{id_chapter}}",
+							"raw": "{{url}}/api/chapters/{{id_chapters}}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"chapter",
-								"{{id_chapter}}"
+								"chapters",
+								"{{id_chapters}}"
 							]
 						},
 						"description": "Sixth Week Assignment. \n"
@@ -434,21 +434,21 @@
 			]
 		},
 		{
-			"name": "Person",
+			"name": "persons",
 			"item": [
 				{
-					"name": "Get Person",
+					"name": "Get persons",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/person/",
+							"raw": "{{url}}/api/persons/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"person",
+								"persons",
 								""
 							]
 						},
@@ -457,13 +457,13 @@
 					"response": []
 				},
 				{
-					"name": "Post Person",
+					"name": "Post persons",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"{{name_person}}\",\n    \"lastname\": \"{{lastname_person}}\",\n    \"gender\": \"{{gender_person}}\",\n    \"date_of_birth\": \"{{date_of_birth_person}}\",\n    \"person_type\": \"{{person_type}}\"\n}",
+							"raw": "{\n    \"name\": \"{{name_persons}}\",\n    \"lastname\": \"{{lastname_persons}}\",\n    \"gender\": \"{{gender_persons}}\",\n    \"date_of_birth\": \"{{date_of_birth_persons}}\",\n    \"persons_type\": \"{{persons_type}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -471,13 +471,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/person/",
+							"raw": "{{url}}/api/persons/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"person",
+								"persons",
 								""
 							]
 						},
@@ -486,13 +486,13 @@
 					"response": []
 				},
 				{
-					"name": "Put Person",
+					"name": "Put persons",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": {{person_id}},\n    \"name\": \"{{name_person}}\",\n    \"lastname\": \"{{lastname_person}}\",\n    \"gender\": \"{{gender_person}}\",\n    \"date_of_birth\": \"{{date_of_birth_person}}\",\n    \"person_type\": \"{{person_type}}\"\n}",
+							"raw": "{\n    \"id\": {{persons_id}},\n    \"name\": \"{{name_persons}}\",\n    \"lastname\": \"{{lastname_persons}}\",\n    \"gender\": \"{{gender_persons}}\",\n    \"date_of_birth\": \"{{date_of_birth_persons}}\",\n    \"persons_type\": \"{{persons_type}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -500,14 +500,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/person/{{person_id}}/",
+							"raw": "{{url}}/api/persons/{{persons_id}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"person",
-								"{{person_id}}",
+								"persons",
+								"{{persons_id}}",
 								""
 							]
 						},
@@ -516,124 +516,19 @@
 					"response": []
 				},
 				{
-					"name": "Delete Person",
+					"name": "Delete persons",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/person/{{person_id}}/",
+							"raw": "{{url}}/api/persons/{{persons_id}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"person",
-								"{{person_id}}",
-								""
-							]
-						},
-						"description": "Sixth Week Assignment. \n"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Role",
-			"item": [
-				{
-					"name": "Get Role",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/role/",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"role",
-								""
-							]
-						},
-						"description": "Sixth Week Assignment. \n"
-					},
-					"response": []
-				},
-				{
-					"name": "Post Role",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"{{name_role}}\",\n    \"description\": \"{{description_role}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/role/",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"role",
-								""
-							]
-						},
-						"description": "Sixth Week Assignment. \n"
-					},
-					"response": []
-				},
-				{
-					"name": "Put Role",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": {{role_id}},\n    \"name\": \"{{name_role}}\",\n    \"description\": \"{{description_role}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/role/{{role_id}}/",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"role",
-								"{{role_id}}",
-								""
-							]
-						},
-						"description": "Sixth Week Assignment. \n"
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Role",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/role/{{role_id}}/",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"role",
-								"{{role_id}}",
+								"persons",
+								"{{persons_id}}",
 								""
 							]
 						},
@@ -644,35 +539,36 @@
 			]
 		},
 		{
-			"name": "FilmPersonRole",
+			"name": "roles",
 			"item": [
 				{
-					"name": "Get FilmPersonRole",
+					"name": "Get roles",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/film-person-role/",
+							"raw": "{{url}}/api/roles/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"film-person-role",
+								"roles",
 								""
 							]
-						}
+						},
+						"description": "Sixth Week Assignment. \n"
 					},
 					"response": []
 				},
 				{
-					"name": "Post FilmPersonRole",
+					"name": "Post roles",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"film\": {{film_serie_id}},\n    \"person\": {{person_id}},\n    \"role\": {{role_id}}\n}",
+							"raw": "{\n    \"name\": \"{{name_roles}}\",\n    \"description\": \"{{description_roles}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -680,27 +576,28 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/film-person-role/",
+							"raw": "{{url}}/api/roles/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"film-person-role",
+								"roles",
 								""
 							]
-						}
+						},
+						"description": "Sixth Week Assignment. \n"
 					},
 					"response": []
 				},
 				{
-					"name": "Put FilmPersonRole",
+					"name": "Put roles",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": {{film_person_role_id}},\n    \"film\": {{film_serie_id}},\n    \"person\": {{person_id}},\n    \"role\": {{role_id}}\n}",
+							"raw": "{\n    \"id\": {{roles_id}},\n    \"name\": \"{{name_roles}}\",\n    \"description\": \"{{description_roles}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -708,14 +605,60 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/film-person-role/{{film_person_role_id}}/",
+							"raw": "{{url}}/api/roles/{{roles_id}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"film-person-role",
-								"{{film_person_role_id}}",
+								"roles",
+								"{{roles_id}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete roles",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/roles/{{roles_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"roles",
+								"{{roles_id}}",
+								""
+							]
+						},
+						"description": "Sixth Week Assignment. \n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "filmspersonsroles",
+			"item": [
+				{
+					"name": "Get filmspersonsroles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/films-persons-roles/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"films-persons-roles",
 								""
 							]
 						}
@@ -723,19 +666,76 @@
 					"response": []
 				},
 				{
-					"name": "Delete FilmPersonRole",
+					"name": "Post filmspersonsroles",
 					"request": {
-						"method": "DELETE",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"films\": {{films_serie_id}},\n    \"persons\": {{persons_id}},\n    \"roles\": {{roles_id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{url}}/api/film-person-role/{{film_person_role_id}}/",
+							"raw": "{{url}}/api/films-persons-roles/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"film-person-role",
-								"{{film_person_role_id}}",
+								"films-persons-roles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put filmspersonsroles",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{films_persons_roles_id}},\n    \"films\": {{films_serie_id}},\n    \"persons\": {{persons_id}},\n    \"roles\": {{roles_id}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/films-persons-roles/{{films_persons_roles_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"films-persons-roles",
+								"{{films_persons_roles_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete filmspersonsroles",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/films-persons-roles/{{films_persons_roles_id}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"films-persons-roles",
+								"{{films_persons_roles_id}}",
 								""
 							]
 						}
@@ -745,21 +745,21 @@
 			]
 		},
 		{
-			"name": "Client",
+			"name": "clients",
 			"item": [
 				{
-					"name": "Get Client",
+					"name": "Get clients",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/client/",
+							"raw": "{{url}}/api/clients/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"client",
+								"clients",
 								""
 							]
 						}
@@ -767,13 +767,13 @@
 					"response": []
 				},
 				{
-					"name": "Post Client",
+					"name": "Post clients",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"person\": {{person_id}},\n    \"direction\": \"{{direction_client}}\",\n    \"phone\": \"{{phone_client}}\",\n    \"email\": \"{{email_client}}\"\n}",
+							"raw": "{\n    \"persons\": {{persons_id}},\n    \"direction\": \"{{direction_clients}}\",\n    \"phone\": \"{{phone_clients}}\",\n    \"email\": \"{{email_clients}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -781,13 +781,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/client/",
+							"raw": "{{url}}/api/clients/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"client",
+								"clients",
 								""
 							]
 						}
@@ -795,13 +795,13 @@
 					"response": []
 				},
 				{
-					"name": "Put Client",
+					"name": "Put clients",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": {{client_id}},\n    \"person\": {{person_id}},\n    \"direction\": \"{{direction_client}}\",\n    \"phone\": \"{{phone_client}}\",\n    \"email\": \"{{email_client}}\"\n}",
+							"raw": "{\n    \"id\": {{clients_id}},\n    \"persons\": {{persons_id}},\n    \"direction\": \"{{direction_clients}}\",\n    \"phone\": \"{{phone_clients}}\",\n    \"email\": \"{{email_clients}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -809,14 +809,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/client/{{client_id}}/",
+							"raw": "{{url}}/api/clients/{{clients_id}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"client",
-								"{{client_id}}",
+								"clients",
+								"{{clients_id}}",
 								""
 							]
 						}
@@ -824,19 +824,19 @@
 					"response": []
 				},
 				{
-					"name": "Delete Client",
+					"name": "Delete clients",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/client/{{client_id}}/",
+							"raw": "{{url}}/api/clients/{{clients_id}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"client",
-								"{{client_id}}",
+								"clients",
+								"{{clients_id}}",
 								""
 							]
 						}
@@ -846,21 +846,21 @@
 			]
 		},
 		{
-			"name": "Rent",
+			"name": "rents",
 			"item": [
 				{
-					"name": "Get Rent",
+					"name": "Get rents",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/rent/",
+							"raw": "{{url}}/api/rents/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"rent",
+								"rents",
 								""
 							]
 						}
@@ -868,13 +868,13 @@
 					"response": []
 				},
 				{
-					"name": "Post Rent",
+					"name": "Post rents",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"film\": {{film_serie_id}},\n    \"client\": {{client_id}},\n    \"amount\": {{amount_rent}},\n    \"start_date\": \"{{start_date_rent}}\",\n    \"return_date\": \"{{return_date_rent}}\",\n    \"actual_return_date\": \"{{actual_return_date_rent}}\",\n    \"state\": \"{{state_rent}}\",\n    \"cost\": {{cost_rent}}\n}",
+							"raw": "{\n    \"films\": {{films_serie_id}},\n    \"clients\": {{clients_id}},\n    \"amount\": {{amount_rents}},\n    \"start_date\": \"{{start_date_rents}}\",\n    \"return_date\": \"{{return_date_rents}}\",\n    \"actual_return_date\": \"{{actual_return_date_rents}}\",\n    \"state\": \"{{state_rents}}\",\n    \"cost\": {{cost_rents}}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -882,13 +882,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/rent/",
+							"raw": "{{url}}/api/rents/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"rent",
+								"rents",
 								""
 							]
 						}
@@ -896,13 +896,13 @@
 					"response": []
 				},
 				{
-					"name": "Put Rent",
+					"name": "Put rents",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": {{rent_id}},\n    \"film\": {{film_serie_id}},\n    \"client\": {{client_id}},\n    \"amount\": {{amount_rent}},\n    \"start_date\": \"{{start_date_rent}}\",\n    \"return_date\": \"{{return_date_rent}}\",\n    \"actual_return_date\": \"{{actual_return_date_rent}}\",\n    \"state\": \"{{state_rent}}\",\n    \"cost\": {{cost_rent}}\n}",
+							"raw": "{\n    \"id\": {{rents_id}},\n    \"films\": {{films_serie_id}},\n    \"clients\": {{clients_id}},\n    \"amount\": {{amount_rents}},\n    \"start_date\": \"{{start_date_rents}}\",\n    \"return_date\": \"{{return_date_rents}}\",\n    \"actual_return_date\": \"{{actual_return_date_rents}}\",\n    \"state\": \"{{state_rents}}\",\n    \"cost\": {{cost_rents}}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -910,14 +910,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/rent/{{rent_id}}/",
+							"raw": "{{url}}/api/rents/{{rents_id}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"rent",
-								"{{rent_id}}",
+								"rents",
+								"{{rents_id}}",
 								""
 							]
 						}
@@ -925,19 +925,19 @@
 					"response": []
 				},
 				{
-					"name": "Delete Rent",
+					"name": "Delete rents",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/rent/{{rent_id}}/",
+							"raw": "{{url}}/api/rents/{{rents_id}}/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"rent",
-								"{{rent_id}}",
+								"rents",
+								"{{rents_id}}",
 								""
 							]
 						}

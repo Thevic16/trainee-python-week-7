@@ -1,4 +1,5 @@
 from rest_framework import permissions
+from rest_framework.permissions import SAFE_METHODS
 
 
 class AnonPermissionOnly(permissions.BasePermission):
@@ -31,3 +32,8 @@ class IsAdmin(permissions.BasePermission):
         if request.user.is_admin:
             return True
         return False
+
+
+class ReadOnly(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.method in SAFE_METHODS

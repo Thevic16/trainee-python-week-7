@@ -2,6 +2,8 @@ from django.db.models import Q
 from rest_framework import generics, mixins
 from django.core.exceptions import ValidationError
 from rest_framework.response import Response
+
+from account.api.permissions import ReadOnly
 from rent.api.serializers import RentSerializer
 from rent.models import Rent
 from utilities.logger import Logger
@@ -9,8 +11,7 @@ from utilities.logger import Logger
 
 class RentAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                         generics.RetrieveAPIView):
-    # permission_classes = []
-    # authentication_classes = []
+    permission_classes = [ReadOnly]
     serializer_class = RentSerializer
     queryset = Rent.objects.all()
 
@@ -37,8 +38,7 @@ class RentAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class RentAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    # permission_classes = []
-    # authentication_classes = []
+    permission_classes = [ReadOnly]
     queryset = Rent.objects.all()
     serializer_class = RentSerializer
     ordering_fields = ('id', 'client__person__name',

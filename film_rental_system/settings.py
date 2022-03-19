@@ -112,11 +112,10 @@ if env('DATABASE_STATE') == 'Local':
         }
     }
 elif env('DATABASE_STATE') == 'Deploy':
-    DATABASES = {}
+
     db_from_env = dj_database_url.config(default=env('DATABASE_URL'),
                                          conn_max_age=500, ssl_require=True)
-    DATABASES['default'].update(db_from_env)
-
+    DATABASES = {'default': db_from_env}
 
 # Password validation ---------------------------------------------------------
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -282,7 +281,6 @@ SESSION_CACHE_ALIAS = "default"
 
 # setting the cache TTL to 60 minutes
 CACHE_TTL = 60 * 1
-
 
 # S3 BUCKETS CONFIG -----------------------------------------------------------
 '''

@@ -18,6 +18,7 @@ pillow = "*"
 django-storages = "*"
 boto3 = "*"
 django-redis = "*"
+django-rest-swagger = "*"
 
 [dev-packages]
 flake8 = "*"

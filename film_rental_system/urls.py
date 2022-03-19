@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Film Rental System API')
 
 urlpatterns = [
+    # Swagger
+    path('doc/', schema_view),
     # Admin
     path('admin/', admin.site.urls),
     # Api Film

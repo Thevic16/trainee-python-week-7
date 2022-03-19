@@ -6,6 +6,6 @@ app_name = 'rent'
 
 urlpatterns = [
     # Paths Rent
-    path('rent/', RentAPIView.as_view()),
-    path('rent/<int:pk>/', RentAPIDetailView.as_view(), name='rent-list'),
+    path('rents/', RentAPIView.as_view()),
+    path('rents/<int:pk>/', RentAPIDetailView.as_view(), name='rent-list'),
 ]

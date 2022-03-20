@@ -34,6 +34,18 @@ class MyUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+    def create_user_employee(self, email, password=None):
+        """
+        Creates and saves a employee user with the given email and password.
+        """
+        user = self.create_user(
+            email,
+            password=password
+        )
+        user.is_employee = True
+        user.save(using=self._db)
+        return user
+
 
 class MyUser(AbstractBaseUser):
     email = models.EmailField(

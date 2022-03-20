@@ -1,10 +1,11 @@
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError
 from django.utils.crypto import get_random_string
+import random
 
 from film.models import Category, Film
 from utilities.functions import gen_random_float, gen_random_int, \
-    gen_random_film_type, gen_dates
+    gen_random_film_type, gen_date
 
 
 class Command(BaseCommand):
@@ -14,8 +15,11 @@ class Command(BaseCommand):
         for i in range(10):
             title = get_random_string(15)
             description = get_random_string(15)
-            release_date = gen_dates()['start']
-            category = Category.objects.all().first()
+            release_date = gen_date()
+            # Django get a random category object
+            items_category = list(Category.objects.all())
+            category = random.choice(items_category)
+
             price_by_day = gen_random_float()
             stock = gen_random_int()
             availability = stock
@@ -35,7 +39,7 @@ class Command(BaseCommand):
                                   f'stock:{stock},'
                                   f'availability:{availability},'
                                   f'film_type:{film_type},'
-                                  f'film created!')
+                                  f' film created!')
             except IntegrityError:
                 self.stdout.write('An error has occurred during the creation '
                                   'of the film')

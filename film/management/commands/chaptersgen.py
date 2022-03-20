@@ -1,3 +1,4 @@
+from random import choice
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError
 from django.utils.crypto import get_random_string
@@ -9,7 +10,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         for i in range(10):
-            season = Season.objects.all().first()
+            # Django get a random category object
+            items_season = list(Season.objects.all())
+            season = choice(items_season)
             title = get_random_string(15)
 
             try:

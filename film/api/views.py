@@ -126,6 +126,11 @@ class FilmAPIView(mixins.CreateModelMixin, generics.ListAPIView):
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
 
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(FilmAPIView, self).get(request, *args, **kwargs)
+
 
 # Views Season
 class SeasonAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
@@ -178,6 +183,11 @@ class SeasonAPIView(mixins.CreateModelMixin, generics.ListAPIView):
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
 
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(SeasonAPIView, self).get(request, *args, **kwargs)
+
 
 # Views Chapter
 class ChapterAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
@@ -229,3 +239,8 @@ class ChapterAPIView(mixins.CreateModelMixin, generics.ListAPIView):
         except ValidationError as e:
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
+
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(ChapterAPIView, self).get(request, *args, **kwargs)

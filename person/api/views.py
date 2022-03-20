@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.utils.decorators import method_decorator
 from rest_framework import generics, mixins
 
 from account.api.permissions import ReadOnly, IsAdmin
@@ -10,6 +11,10 @@ from rest_framework.response import Response
 
 # Views Person
 from utilities.logger import Logger
+
+from film_rental_system.settings import CACHE_TTL
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie
 
 
 class PersonAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
@@ -60,6 +65,11 @@ class PersonAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(PersonAPIView, self).get(request, *args, **kwargs)
 
 
 # Views Role
@@ -112,6 +122,11 @@ class RoleAPIView(mixins.CreateModelMixin, generics.ListAPIView):
         except ValidationError as e:
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
+
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(RoleAPIView, self).get(request, *args, **kwargs)
 
 
 # Views FilmPersonRole
@@ -172,6 +187,11 @@ class FilmPersonRoleAPIView(mixins.CreateModelMixin, generics.ListAPIView):
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
 
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(FilmPersonRoleAPIView, self).get(request, *args, **kwargs)
+
 
 # Views Client
 class ClientAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
@@ -226,3 +246,8 @@ class ClientAPIView(mixins.CreateModelMixin, generics.ListAPIView):
         except ValidationError as e:
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
+
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(ClientAPIView, self).get(request, *args, **kwargs)

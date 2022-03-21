@@ -7,6 +7,7 @@ from django.db.models.signals import pre_save
 from film.validations import (validator_no_negative,
                               validator_date_limit_future)
 from rent.business_logic import RentBusinessLogic
+from rent.validations import RentValidation
 
 STATE_CHOICES = {
     ('open', 'Open'),
@@ -39,38 +40,38 @@ class Rent(models.Model):
 
 def rent_model_pre_save_receiver(sender, instance, *args, **kwargs):
     # Validations that should always happen
-    RentBusinessLogic.validate_state_close(instance.state,
-                                           instance.actual_return_date)
+    RentValidation.validate_state_close(instance.state,
+                                        instance.actual_return_date)
 
-    RentBusinessLogic.validate_date1_eq_or_low_date2(
+    RentValidation.validate_date1_eq_or_low_date2(
         instance.return_date, instance.start_date, 'return_date'
     )
 
-    RentBusinessLogic.validate_date_gt_max_limit(
+    RentValidation.validate_date_gt_max_limit(
         instance.return_date, instance.start_date, 'return_date'
     )
 
-    RentBusinessLogic.validate_date1_gr_or_eq_date2(
+    RentValidation.validate_date1_gr_or_eq_date2(
         instance.actual_return_date, instance.start_date, 'actual_return_date'
     )
 
     try:
         # update
         pre_save_rent = Rent.objects.get(id=instance.id)
-        RentBusinessLogic.validate_update_permission(pre_save_rent.state)
+        RentValidation.validate_update_permission(pre_save_rent.state)
 
         RentBusinessLogic.state_close_return_films(instance.state,
                                                    pre_save_rent.state,
                                                    instance.amount,
                                                    instance.film)
 
-        RentBusinessLogic.validate_amount_update(instance.amount,
-                                                 instance.film,
-                                                 pre_save_rent)
+        RentValidation.validate_amount_update(instance.amount,
+                                              instance.film,
+                                              pre_save_rent)
     except ObjectDoesNotExist:
         # create first time
-        RentBusinessLogic.validate_amount_availability(instance.amount,
-                                                       instance.film)
+        RentValidation.validate_amount_availability(instance.amount,
+                                                    instance.film)
 
         RentBusinessLogic.state_close_return_films(instance.state,
                                                    "open",

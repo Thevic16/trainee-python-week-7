@@ -15,6 +15,7 @@ from pathlib import Path
 import environ
 import dj_database_url
 
+
 # Initialize environ ----------------------------------------------------------
 env = environ.Env()
 environ.Env.read_env()

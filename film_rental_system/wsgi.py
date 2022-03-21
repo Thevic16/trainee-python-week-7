@@ -13,6 +13,7 @@ from django.core.wsgi import get_wsgi_application
 # from whitenoise.django import DjangoWhiteNoise
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'film_rental_system.settings')
-
 application = get_wsgi_application()
+
+# I used this code when the first time I was trying to deploy on heroku
 # application = DjangoWhiteNoise(application)

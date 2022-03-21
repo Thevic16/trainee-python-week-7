@@ -285,12 +285,12 @@ SESSION_CACHE_ALIAS = "default"
 CACHE_TTL = 60 * 1
 
 # S3 BUCKETS CONFIG -----------------------------------------------------------
-'''
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-'''
+# For now, I am only interested in uploading the images
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+

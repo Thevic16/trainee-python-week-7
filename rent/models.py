@@ -4,8 +4,8 @@ from django.utils.encoding import smart_text
 from film.models import Film
 from person.models import Client
 from django.db.models.signals import pre_save
-from film.business_logic import (validator_no_negative,
-                                 validator_date_limit_future)
+from film.validations import (validator_no_negative,
+                              validator_date_limit_future)
 from rent.business_logic import RentBusinessLogic
 
 STATE_CHOICES = {

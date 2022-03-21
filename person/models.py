@@ -4,7 +4,7 @@ from film.models import Film
 from django.core.validators import RegexValidator
 
 # Create your models here.
-from film.business_logic import validator_date_limit_today
+from film.validations import validator_date_limit_today
 from person.business_logic import PersonBusinessLogic
 
 GENDER_CHOICES = {

@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate
-from rest_framework import permissions, generics
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_jwt.settings import api_settings

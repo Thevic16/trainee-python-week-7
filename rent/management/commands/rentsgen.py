@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand
 from django.db import IntegrityError
 import random
 from film.models import Film
-from person.models import Person, Role, FilmPersonRole, Client
+from person.models import Client
 from rent.models import Rent
 from utilities.functions import gen_number, gen_dates
 

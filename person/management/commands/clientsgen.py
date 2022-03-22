@@ -32,4 +32,3 @@ class Command(BaseCommand):
             except IntegrityError:
                 self.stdout.write('An error has occurred during the creation '
                                   'of the client')
-

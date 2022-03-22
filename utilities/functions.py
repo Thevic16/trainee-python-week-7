@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta, date
-from random import randint, uniform, choice, randrange
+from random import randint, uniform, randrange
 
 
 def gen_dates():

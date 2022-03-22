@@ -1,8 +1,8 @@
 from django.db import models
 from django.db.models.signals import pre_save
 from django.utils.encoding import smart_text
-from film.business_logic import (validator_date_limit_today,
-                                 validator_no_negative, FilmBusinessLogic)
+from film.business_logic import FilmBusinessLogic
+from film.validations import validator_date_limit_today, validator_no_negative
 
 
 def upload_film_image(instance, filename):

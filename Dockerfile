@@ -16,5 +16,4 @@ RUN pip install -r requirements.txt
 COPY . .
 RUN pip install -e .
 
-CMD ["chmod", "+x", "/docker-entrypoint.sh"]
 CMD gunicorn film_rental_system.wsgi:application --bind 0.0.0.0:$PORT

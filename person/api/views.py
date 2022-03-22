@@ -1,5 +1,8 @@
 from django.db.models import Q
+from django.utils.decorators import method_decorator
 from rest_framework import generics, mixins
+
+from account.api.permissions import ReadOnly, IsAdmin
 from person.api.serializers import (PersonSerializer, RoleSerializer,
                                     FilmPersonRoleSerializer, ClientSerializer)
 from person.models import Person, Role, FilmPersonRole, Client
@@ -9,11 +12,14 @@ from rest_framework.response import Response
 # Views Person
 from utilities.logger import Logger
 
+from film_rental_system.settings import CACHE_TTL
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie
+
 
 class PersonAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                           generics.RetrieveAPIView):
-    # permission_classes = []
-    # authentication_classes = []
+    permission_classes = [ReadOnly | IsAdmin]
     serializer_class = PersonSerializer
     queryset = Person.objects.all()
 
@@ -40,8 +46,7 @@ class PersonAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class PersonAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    # permission_classes = []
-    # authentication_classes = []
+    permission_classes = [ReadOnly | IsAdmin]
     queryset = Person.objects.all()
     serializer_class = PersonSerializer
     ordering_fields = ('id', 'name', 'lastname', 'date_of_birth')
@@ -61,12 +66,16 @@ class PersonAPIView(mixins.CreateModelMixin, generics.ListAPIView):
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
 
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(PersonAPIView, self).get(request, *args, **kwargs)
+
 
 # Views Role
 class RoleAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                         generics.RetrieveAPIView):
-    # permission_classes = []
-    # authentication_classes = []
+    permission_classes = [ReadOnly | IsAdmin]
     serializer_class = RoleSerializer
     queryset = Role.objects.all()
 
@@ -93,8 +102,7 @@ class RoleAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class RoleAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    # permission_classes = []
-    # authentication_classes = []
+    permission_classes = [ReadOnly | IsAdmin]
     queryset = Role.objects.all()
     serializer_class = RoleSerializer
     ordering_fields = ('id', 'name')
@@ -115,13 +123,17 @@ class RoleAPIView(mixins.CreateModelMixin, generics.ListAPIView):
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
 
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(RoleAPIView, self).get(request, *args, **kwargs)
+
 
 # Views FilmPersonRole
 class FilmPersonRoleAPIDetailView(mixins.UpdateModelMixin,
                                   mixins.DestroyModelMixin,
                                   generics.RetrieveAPIView):
-    # permission_classes = []
-    # authentication_classes = []
+    permission_classes = [ReadOnly | IsAdmin]
     serializer_class = FilmPersonRoleSerializer
     queryset = FilmPersonRole.objects.all()
 
@@ -148,8 +160,7 @@ class FilmPersonRoleAPIDetailView(mixins.UpdateModelMixin,
 
 
 class FilmPersonRoleAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    # permission_classes = []
-    # authentication_classes = []
+    permission_classes = [ReadOnly | IsAdmin]
     queryset = FilmPersonRole.objects.all()
     serializer_class = FilmPersonRoleSerializer
     ordering_fields = ('id', 'film__title', 'person__name', 'person__lastname',
@@ -176,12 +187,16 @@ class FilmPersonRoleAPIView(mixins.CreateModelMixin, generics.ListAPIView):
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
 
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(FilmPersonRoleAPIView, self).get(request, *args, **kwargs)
+
 
 # Views Client
 class ClientAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
                           generics.RetrieveAPIView):
-    # permission_classes = []
-    # authentication_classes = []
+    permission_classes = [ReadOnly | IsAdmin]
     serializer_class = ClientSerializer
     queryset = Client.objects.all()
 
@@ -208,8 +223,7 @@ class ClientAPIDetailView(mixins.UpdateModelMixin, mixins.DestroyModelMixin,
 
 
 class ClientAPIView(mixins.CreateModelMixin, generics.ListAPIView):
-    # permission_classes = []
-    # authentication_classes = []
+    permission_classes = [ReadOnly | IsAdmin]
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
     ordering_fields = ('id', 'person__name', 'person__lastname', 'phone',
@@ -232,3 +246,8 @@ class ClientAPIView(mixins.CreateModelMixin, generics.ListAPIView):
         except ValidationError as e:
             Logger.debug(f'ValidationError:{e}')
             return Response(e)
+
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(CACHE_TTL))
+    def get(self, request, *args, **kwargs):
+        return super(ClientAPIView, self).get(request, *args, **kwargs)

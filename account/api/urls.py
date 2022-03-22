@@ -5,7 +5,7 @@ from account.api.views import AuthAPIView, RegisterAPIView
 
 urlpatterns = [
     # Api authentication view
-    path('', AuthAPIView.as_view()),
+    path('auth/', AuthAPIView.as_view()),
     # Api register
     path('register/', RegisterAPIView.as_view()),
     # Api obtain token

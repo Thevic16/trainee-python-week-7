@@ -4,9 +4,11 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 from unittest.mock import patch
 
-from film.business_logic import (validator_date_limit_today,
-                                 validator_date_limit_future,
-                                 validator_no_negative, FilmBusinessLogic)
+from film.business_logic import FilmBusinessLogic
+
+from film.validations import (validator_date_limit_today,
+                              validator_date_limit_future,
+                              validator_no_negative)
 
 
 def fake_today():
@@ -22,7 +24,7 @@ class FilmAppTestCase(TestCase):
         self.positive_number = 5
         self.negative_number = -5
 
-    @patch("film.business_logic.date")
+    @patch("film.validations.date")
     def test_validator_date_limit_today(self, mock_today):
         # Set mock
         mock_today.today.return_value = fake_today()
@@ -33,7 +35,7 @@ class FilmAppTestCase(TestCase):
         with self.assertRaises(ValidationError):
             validator_date_limit_today(self.later_date)
 
-    @patch("film.business_logic.date")
+    @patch("film.validations.date")
     def test_validator_date_limit_future(self, mock_today):
         # Set mock
         mock_today.today.return_value = fake_today()
@@ -56,11 +58,11 @@ class FilmAppTestCase(TestCase):
             stock = 5
             availability = 10
             FilmBusinessLogic.validate_stock_greater_availability(
-                    stock, availability)
+                stock, availability)
 
     def test_validate_film_type_equal_prequel_film_type(self):
         with self.assertRaises(ValidationError):
             film_type = 'movie'
             prequel_film_type = 'serie'
             FilmBusinessLogic.validate_film_type_equal_prequel_film_type(
-                    film_type, prequel_film_type)
+                film_type, prequel_film_type)

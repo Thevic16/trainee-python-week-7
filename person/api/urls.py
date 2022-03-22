@@ -17,7 +17,8 @@ urlpatterns = [
          name='role-detail'),
     # Paths film-person-role
     path('films-persons-roles/', FilmPersonRoleAPIView.as_view()),
-    path('films-persons-roles/<int:pk>/', FilmPersonRoleAPIDetailView.as_view(),
+    path('films-persons-roles/<int:pk>/',
+         FilmPersonRoleAPIDetailView.as_view(),
          name='film-person-role-detail'),
     # Paths Client
     path('clients/', ClientAPIView.as_view()),

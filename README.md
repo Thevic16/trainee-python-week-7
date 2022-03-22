@@ -61,7 +61,6 @@ appears down to avoid errors for nonexistent data dependency.
 - python manage.py personsgen
 - python manage.py clientsgen
 - python manage.py filmspersonsrolesgen
-- python manage.py clientsgen
 - python manage.py rentsgen
 
 # Heroku URLs API apps (categories, films, seasons, chapters, persons, roles, films-persons-roles, clients and rents).

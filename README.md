@@ -1,5 +1,23 @@
 #  Seventh Week Assignment.
 
+# Project Task/Challenge
+The challenge was to create a Django application that manages a movie rental system: the app must provide the following functionality for any film (movie or series):   
+- Add a film  
+- Modify a film  
+- List/Read a film  
+- Delete a film  
+
+The main logic of the app has to be implemented first in Django admin and then in using Django Rest Framework.
+
+One piece of information that was given was that the film has a title, description, stock, price, availability, season (prequel and sequel), release date, price by rent day, and an image that should be saved on Amason S3 services.  
+
+Also has a category system for the movies, manages the cast of any film (actors, director, …), and should organize the chapters by season (only for series).  Additionally, the app has to support the logic to have clients that should be able to rent copies of the films, another rule is that the film could only be rented for a max of 15 days, if the client doesn't return it on time, must be punished with the extra tax (the price of any extra day + $2 by day).
+
+Talking about security the app should define JWT authentication, and permission by endpoints depending on the type of user. For example, should support an anonymous role that can see all the GET endpoints, on the other hand, the employee role has permission to see all, and also work with the renting process, finally, the administrator role should be able to see and modify all the information on the site.
+ 
+The final requisites were that the app has to be published into Heroku using Docker, add Django-admin-command to seed records by table using Faker, also add the Postman collection. 
+
+
 # Logic Diagram of the project.
 ![Diagram](https://github.com/Thevic16/trainee-python-week-7/blob/main/img/Sixth%20Week%20Assignement%20UML.drawio.png)
 

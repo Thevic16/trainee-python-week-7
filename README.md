@@ -1,7 +1,7 @@
 #  Seventh Week Assignment.
 
 # Logic Diagram of the project.
-![Diagram](https://gitlab.com/t7501/fifth-week-assignment/-/blob/feature/django/models/img/Fifth%20Week%20Assignement%20UML.drawio.png)
+![Diagram](https://github.com/Thevic16/trainee-python-week-7/blob/main/img/Sixth%20Week%20Assignement%20UML.drawio.png)
 
 # Instruction to run the app.
 
